@@ -8,9 +8,9 @@
     "url": "www.photographyche.com"
   },
   "description": "Let's try Angular 5...",
-  "homepage": "",
+  "homepage": "https://github.com/bokjo/angular5",
   "repository": {
-    "url": ""
+    "url": "https://github.com/bokjo/angular5.git"
   },
   "scripts": {
     "ng": "ng",
