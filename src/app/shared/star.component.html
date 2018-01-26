@@ -1,11 +1,12 @@
 <div class="crop"
-    [style.width.px]="starWidth"
-    [title]="rating">
-    <div style="width: 86px">
-        <span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star"></span>
+    style.width.px={{starWidth}}
+    title={{rating}}
+    (click)='onClick()'>
+    <div style="width: 120px">
+      <i class="fa fa-star" aria-hidden="true"></i>
+      <i class="fa fa-star" aria-hidden="true"></i>
+      <i class="fa fa-star" aria-hidden="true"></i>
+      <i class="fa fa-star" aria-hidden="true"></i>
+      <i class="fa fa-star" aria-hidden="true"></i>
     </div>
 </div>
