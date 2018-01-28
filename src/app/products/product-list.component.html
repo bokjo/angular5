@@ -1,6 +1,6 @@
 <div class="card">
 
-  <div class="card-header">
+  <div class="card-header bg-primary">
     {{pageTitle}}
   </div>
 
@@ -58,6 +58,10 @@
       </table>
     </div>
 
+  </div>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{errorMessage}}
   </div>
 
 </div>

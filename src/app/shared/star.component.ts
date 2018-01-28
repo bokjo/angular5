@@ -13,10 +13,10 @@ export class StarComponent implements OnChanges {
   @Output() notifyRating: EventEmitter<string> = new EventEmitter<string>();
 
   ngOnChanges(): void {
-    this.starWidth = this.rating * 120 / 5;
+    this.starWidth = this.rating * 115 / 5;
   }
 
-  onClick() {
+  ratingClicked() {
     this.notifyRating.emit(`The rating is: ${this.rating}`);
   }
 
