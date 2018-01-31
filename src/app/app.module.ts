@@ -10,6 +10,7 @@ import { StarComponent } from './shared/star.component';
 import { ConvertToSpacesPipe } from './shared/convert-to-spaces.pipe';
 import { ProductDetailComponent } from './products/product-detail.component';
 import { HomeComponent } from './home/home.component';
+import { ProductGuardService } from './services/product-guard.service';
 
 @NgModule({
   declarations: [
@@ -25,14 +26,18 @@ import { HomeComponent } from './home/home.component';
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot([
-      { path: 'products', component: ProductListComponent },
-      { path: 'products/:id', component: ProductDetailComponent },
-      { path: 'home', component: HomeComponent },
-      { path: '', redirectTo: 'home', pathMatch: 'full' },
-      { path: '**', redirectTo: 'home', pathMatch: 'full' },
-    ], {useHash: false})
+      { path: 'products',     component: ProductListComponent       },
+      { path: 'products/:id',
+        component: ProductDetailComponent,
+        canActivate: [ ProductGuardService ],
+      },
+      { path: 'home',         component: HomeComponent              },
+      { path: '',             redirectTo: 'home', pathMatch: 'full' },
+      { path: '**',           redirectTo: 'home', pathMatch: 'full' },
+    ],
+      { useHash: false })
   ],
-  providers: [],
+  providers: [ProductGuardService],
   bootstrap: [AppComponent]
 })
 

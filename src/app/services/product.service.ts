@@ -6,6 +6,7 @@ import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 
 @Injectable()
@@ -20,6 +21,13 @@ export class ProductService {
     return this._http.get<IProduct[]>(this._apiUrl)
                       .do(data => console.log('All: ' + JSON.stringify(data)))
                       .catch(this._handleError);
+  }
+
+  getProduct(id: number): Observable<IProduct> {
+    console.log(`FETCHING only one product with id: ${id}...`);
+    return this.getProducts()
+               .map((products: IProduct[]) => products.find(product => product.productId === id))
+               .catch(this._handleError);
   }
 
   private _handleError(err: HttpErrorResponse) {
