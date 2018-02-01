@@ -5,39 +5,27 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { ProductListComponent } from './products/product-list.component';
-import { StarComponent } from './shared/star.component';
-import { ConvertToSpacesPipe } from './shared/convert-to-spaces.pipe';
-import { ProductDetailComponent } from './products/product-detail.component';
 import { HomeComponent } from './home/home.component';
-import { ProductGuardService } from './services/product-guard.service';
+import { ProductModule } from './products/product.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductListComponent,
-    StarComponent,
-    ConvertToSpacesPipe,
-    ProductDetailComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot([
-      { path: 'products',     component: ProductListComponent       },
-      { path: 'products/:id',
-        component: ProductDetailComponent,
-        canActivate: [ ProductGuardService ],
-      },
-      { path: 'home',         component: HomeComponent              },
-      { path: '',             redirectTo: 'home', pathMatch: 'full' },
-      { path: '**',           redirectTo: 'home', pathMatch: 'full' },
+      { path: 'home', component: HomeComponent              },
+      { path: '',     redirectTo: 'home', pathMatch: 'full' },
+      { path: '**',   redirectTo: 'home', pathMatch: 'full' },
     ],
-      { useHash: false })
+      { useHash: false }),
+    ProductModule
   ],
-  providers: [ProductGuardService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 
