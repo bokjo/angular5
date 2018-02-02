@@ -1,5 +1,4 @@
 import { Component, OnChanges, Input, Output, EventEmitter } from '@angular/core';
-import {  } from 'events';
 
 @Component({
   selector: 'star-rating',

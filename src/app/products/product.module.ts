@@ -19,7 +19,7 @@ import { SharedModule } from '../shared/shared.module';
         canActivate: [ ProductGuardService ],
       }
     ]),
-    SharedModule
+   SharedModule
   ],
   declarations: [
     ProductListComponent,
